@@ -3,6 +3,15 @@ from flask import render_template, request
 
 app = Flask(__name__)
 
+@app.before_request #decorador
+def before_request(): #puede conectarse a base de datos, consultas, etc.
+    print("Antes de la petición")
+
+@app.after_request
+def after_request(response): #parametro response es el return de las funciones
+    print("Despues de la petición")
+    return response
+
 @app.route('/')
 def index():
     name = 'Codi'
@@ -14,6 +23,11 @@ def index():
 @app.route('/usuario/<username>/<int:num>') #parametros
 def usuario(username,num):
     return 'Hola ' + username + ' Numero: ' + str(num)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 #Request le llegan datos mediante el url /datos?variable1=''&variable2=''
 @app.route ('/datos')

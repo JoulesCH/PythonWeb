@@ -2,13 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Para Julieta</title>
   </head>
   <body>
     <h1>Mensaje del archivo base</h1>
 
+    <a href="{{ url_for('index') }}">Index</a> <!-- se pone el nombre de la función-->
+    <a href="{{ url_for('about') }}">About</a>
+
     {% block content  %}
-    #esto sirve para herencia 
+    #esto sirve para herencia
     {% endblock %}
 
   </body>
