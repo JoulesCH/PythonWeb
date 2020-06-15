@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hola mundo</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'css/style.css') }}">
+
+    <script type="text/javascript" src='{{ url_for('static',filename = 'js/main.js') }}'>
+
+    </script>
+
+  </head>
+  <body>
+    <h2>Hola {{ username }}</h2>
+    <p>
+      El mensaje se encuentra dentro de un archivo .html
+    </p>
+
+    {% if is_premium %}
+      <p>
+        Eres usuario premium
+      </p>
+    {% endif %}
+
+    {% if courses %}
+    <p>Listado de cursos: </p>
+    <ul>
+      {% for course in courses %}
+        <li>{{ course }}</li>
+      {% endfor %}
+    </ul>
+
+    {% endif %}
+    <img src="{{ url_for('static',filename='images/emir-saldierna-oHWCOXSYdsg-unsplash.jpg') }}" alt="">
+
+
+  </body>
+</html>
